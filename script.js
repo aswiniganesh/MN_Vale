@@ -1,44 +1,8 @@
 // Load YouTube IFrame Player API code asynchronously.
 document.getElementById('vid').play();
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
 var player;
 var isYouTubeReady = false;
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('youtube-player', {
-    height: '100%',
-    width: '100%',
-    videoId: '09R8_2nJtjg', // Maroon 5 - Sugar
-    playerVars: {
-      'start': 40,
-      'controls': 0,
-      'autoplay': 1,
-      'mute': 1, // Start muted to allow autoplay
-      'rel': 0
-    },
-    events: {
-      'onReady': onPlayerReady,
-      'onError': onPlayerError,
-      'onStateChange': onPlayerStateChange
-    }
-  });
-}
-
-function onPlayerReady(event) {
-  isYouTubeReady = true;
-}
-
-function onPlayerStateChange(event) {
-  // If unmuted and playing, great. 
-}
-
-function onPlayerError(event) {
-  console.log("YouTube Player Error: ", event.data);
-}
 
 function showMessage(response) {
   let videoPlayed = false;
